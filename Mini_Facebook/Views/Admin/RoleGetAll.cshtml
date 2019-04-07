@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Mini_Facebook.Models.Role>
+
+
+<table class="table table-striped" style="position:relative;top:60px;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="RoleEdit" asp-route-id="@item.Id" data-ajax="true" data-ajax-method="Get" data-ajax-update="#EditData" data-ajax-mode="replace" data-ajax-success="fun2()">Edit</a> |
+                    <a asp-action="RoleDelete" asp-route-id="@item.Id" data-ajax="true" data-ajax-method="Get" data-ajax-update="#MyGet" data-ajax-mode="replace">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

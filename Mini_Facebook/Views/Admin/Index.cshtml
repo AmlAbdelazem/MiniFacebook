@@ -1,0 +1,132 @@
+﻿@model IEnumerable<User>
+
+@{ 
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    @*@Model.FirstOrDefault()*@
+    @*@foreach(var u in ViewBag.roleArray)
+        {
+            <td>
+                @u.Name
+            </td>
+        }*@
+    @*<div class=" col-12">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="display:block!important">
+            Create
+        </button>
+    </div>*@
+
+    <div id="GetallId" class="col-12">
+
+        <partial name="getAllUsers" model="@Model" />
+    </div>
+
+    <!-- Modal -->
+    @*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create New User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <partial name="create" model="new Mini_Facebook.Views.Admin.inputModel()" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+    @section scripts
+    {
+        <partial name="_ValidationScriptsPartial" />
+        <script>
+            function fun() { /*$("#exampleModal").modal("toggle"); */
+                $('#exampleModal').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();}
+        $(".rolLstId").change(function () {
+            var Selval = $('select[name="_rol"] :selected').attr('name');
+            alert("your role selected option is " + Selval);
+            var classVal = $('select[name="_rol"] :selected').attr('class');
+            alert("your selected option is " + classVal);
+            @*window.location = "@Url.Action("ChangeRole", "Admin")?RolName=" + Selval + "&UserID=" + classVal;*@
+            $("#GetallId").load("@Url.Action("ChangeRole", "Admin")?RolId=" + Selval + "&UserId=" + classVal);
+        });
+
+
+        function func() { $("#editmodal").modal("toggle"); }
+
+        $('input[type="radio"]').change(function (e)
+        {
+            console.log(e);
+            var radioValue = $(this).val();
+            var classVal = $(this).attr('class');
+            console.log(radioValue);
+            console.log(classVal);
+
+
+            @*window.location = "@Url.Action("Block", "Admin")?usStat=" + radioValue + "&uID=" + classVal;*@
+            $("#GetallId").load("@Url.Action("Block", "Admin")?usStat=" + radioValue + "&uID=" + classVal);
+
+        });
+        @*$(".hh").change(function () {
+            var Selval = $(this).find(":selected").val();
+            var classVal = $(this).find(":selected").attr('class');
+            alert("your selected option is " + Selval);
+            alert("your selected option is " + classVal);
+            window.location = "@Url.Action("changeUserRole", "Admin")?usRol=" + classVal + "&uID=" + classVal ;
+        });*@
+
+        </script>
+    }
+    @*@if (m.ToString() == item.Role.Name)
+        {
+            <option id="@i" class="@item.Id" selected>@m</option>}
+
+        @if (m.ToString() != item.Role.Name)
+        {
+            <option id="@i" class="@item.Id">@m</option>}*@
+
+
+    @*@{ var x = ViewBag.rolLst[0];}
+        @{ var x1 = ViewData["heba"];}
+
+         @*<td>@ViewBag.rolLst.where(p=> p.Id==item.Id)</td>*@
+    @*<td>@x1.where(n =>)</td>*@
+    @*<td>
+            @Html.DropDownList("rolLst")
+
+        </td>
+        <td>
+            <select class="hh">
+                @foreach (var m in ((SelectList)ViewBag.rolLst).Items)
+                {
+                    <option id="@i" class="@item.Id">@m</option>
+                }
+            </select>
+        </td>*@
+    @*<td>
+            <label>
+                <a asp-action="Block" asp-controller="Admin" asp-route-id="@item.Id">
+                    <input id="item_CheckerApproved"  type="radio" value="True" name="item.CheckerApproved_@i">Block
+                </a> </label>
+            <label> <input id="item_CheckerApproved" type="radio" value="False" name="item.CheckerApproved_@i"
+                       checked="checked">Unblock
+            </label>
+        </td>*@
+
+
+    <!-- Modal -->

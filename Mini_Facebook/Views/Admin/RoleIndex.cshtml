@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Mini_Facebook.Models.Role>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div><h2>Roles</h2></div>
+<div style="position:relative;top:50px;left:-70px">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal">
+        Create
+    </button>
+</div>
+<div id="MyGet" style="width:100%">
+    <partial name="RoleGetAll" model="@Model" />
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="CreateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Create Role</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <partial name="RoleCreate" model="new Role()" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Edit Role</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="EditData">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+    <script>
+
+        function fun1() {
+            $("#CreateModal").modal("toggle")
+
+        }
+        function fun2() {
+            $("#EditModal").modal("toggle")
+        }
+    </script>
+
+}

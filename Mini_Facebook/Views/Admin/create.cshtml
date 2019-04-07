@@ -1,0 +1,56 @@
+﻿@model Mini_Facebook.Views.Admin.inputModel
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAsync" data-ajax="true" data-ajax-method="Post"
+              data-ajax-update="#Body" data-ajax-mode="replace" data-ajax-success="fun()">
+
+            @*   <div asp-validation-summary="All" class="text-danger"></div>*@
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Password">PassWord<input asp-for="Password" type="password" name="_password" class="form-control" /></label>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm PassWord<input type="password" name="_confirmedPassword" class="form-control" /></label>
+                </div>*@
+            @*<div>
+                    <select name="_rol">
+                        <option value="Admin" >Admin</option>
+                        <option value="Member" >Member</option>
+                    </select>
+                </div>*@
+            <div>
+                <label>Role</label>
+                <select name="_rol" class="form-control selcls">
+                    @foreach (var i in ViewBag.roleArray)
+                    {
+                        <option value="@i.Id">@i.Name</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-default">Register</button>
+        </form>
+    </div>
+</div>
+
+
+@*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@

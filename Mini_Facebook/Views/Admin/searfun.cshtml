@@ -1,0 +1,109 @@
+﻿@model IEnumerable<User>
+
+
+<h2>Finded Users</h2>
+
+<table class="table table-striped">
+    <tr>
+        <td>@Html.DisplayNameFor(item => item.FirstName)</td>
+        <td>@Html.DisplayNameFor(item => item.Email)</td>
+        <td>@Html.DisplayNameFor(item => item.Deleted)</td>
+        <td>
+            Blocked / Unblocked
+        </td>
+        <td>Roles</td>
+
+    </tr>
+
+    @{
+        int i = 0;
+
+        foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@Html.DisplayFor(ele => item.UserName)</td>
+                <td>@Html.DisplayFor(ele => item.Email)</td>
+                <td>@Html.DisplayFor(ele => item.Deleted)</td>
+                <td>
+                    <div id="radio">
+                        @if (item.Deleted == true)
+                        {<label>  <input type="radio" name="Isactive_@i" value=true class="@item.Id" checked>Block</label>
+                            <label>    <input type="radio" name="Isactive_@i" value=false class="@item.Id">UnBlock</label>
+                        }
+                        @if (item.Deleted == false)
+                        {
+                            <label>  <input type="radio" name="Isactive_@i" value=true class="@item.Id">Block</label>
+                            <label>    <input type="radio" name="Isactive_@i" value=false class="@item.Id" checked>UnBlock</label>
+                        }
+                    </div>
+                </td>
+                <td>
+                    @*<select id="rolLstId">
+                            @foreach (var o in ViewBag.roleArray)
+                            {
+                                @if (o.Id == item.RoleID)
+                                {
+                                    @if (o.Name == "Admin")
+                                    {
+                                        <option class="@item.RoleID" selected> Admin</option>
+                                        <option class="@item.RoleID"> Member</option>
+                                    }
+                                    else
+                                    {
+                                        <option class="@item.RoleID" > Admin</option>
+                                        <option class="@item.RoleID" selected> Member</option>
+                                    }
+                                }
+
+                            }
+                        </select>*@
+                    <select data-Uname="_rol" class="rolLstId">
+                        @foreach (var ix in ViewBag.roleArray)
+                        {
+                            @if (ix.Id == item.RoleID)
+                            {
+                                <option name="@ix.Id" selected class="@item.Id">@ix.Name</option>}
+                            else
+                            {
+                                <option name="@ix.Id" class="@item.Id">@ix.Name</option>}
+
+                        }
+                    </select>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id " asp-controller="Admin"
+                       data-ajax="true" data-ajax-method="get"
+                       data-ajax-update="#upmodal" data-ajax-mode="replace" data-ajax-success="func()">Edit</a>
+                </td>
+
+            </tr>
+        }
+
+    }
+</table>
+
+
+<script>
+    $('input[type="radio"]').change(function (e)
+        {
+            console.log(e);
+            var radioValue = $(this).val();
+            var classVal = $(this).attr('class');
+            console.log(radioValue);
+            console.log(classVal);
+        var c = '@ViewData["searchTxt"]';
+        alert(c);
+        @*window.location = "@Url.Action("Block", "Admin")?usStat=" + radioValue + "&uID=" + classVal;*@
+        $("#GetallId").load("@Url.Action("Blockser", "Admin")?usStat=" + radioValue + "&uID=" + classVal + "&serchText=" + c);
+    });
+     $("select").change(function () {
+         var Selval = $('option:selected', this).attr('name');
+         alert("your search grole selected option is " + Selval);
+         var classVal = $('option:selected', this).attr('class');
+         alert("your selected option is " + classVal);
+         var c = '@ViewData["searchTxt"]';
+            @*window.location = "@Url.Action("ChangeRole", "Admin")?RolName=" + Selval + "&UserID=" + classVal;*@
+         $("#GetallId").load("@Url.Action("ChangeRoleSerch", "Admin")?RolId=" + Selval + "&UserId=" + classVal + "&serchText=" + c);
+        });
+</script>

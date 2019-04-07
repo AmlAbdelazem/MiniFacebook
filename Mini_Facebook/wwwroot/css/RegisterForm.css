@@ -1,0 +1,32 @@
+﻿#RegisterForm {
+    background-color: #A2A2A2;
+    width: 450px;
+    margin-top: 0px;
+    margin-left: 370px;
+    padding: 30px;
+    padding-left: 30px;
+    border-radius: 5px;
+}
+#SubBtnR {
+    font-weight: bold;
+}
+.genderStyle{
+    font-size:18px;
+}
+.lblBD {
+    font-size: 16px;
+}
+.txtInput {
+    /*width: 100%;*/
+    padding: 8px 8px;
+    /*margin: 8px 0;*/
+    box-sizing: border-box;
+    /*border: 2px solid red;*/
+    border-radius: 4px;
+}
+.gDiv {
+    padding-top:3em;
+}
+#bdLbl{
+    padding-top:0.75em;
+}
