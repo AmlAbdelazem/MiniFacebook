@@ -34,13 +34,13 @@ namespace Mini_Facebook.Controllers
             //var x=context.Users.Select(v=>v.Role);
             var x = context.Users.Select(v => v.Role);
             //ViewBag.roleArray=context.Users.Select(v=>v.Role).ToArray();
-            ViewBag.roleArray = context.Roles.ToArray();
+            ViewBag.roleArray = context.Roles.Where(r => r.Deleted == false).ToArray();
             var c = x;
             return View(context.Users.ToList());
         }
         public IActionResult getAllUsers()
         {
-            ViewBag.roleArray = context.Roles.ToArray();
+            ViewBag.roleArray = context.Roles.Where(r=>r.Deleted==false).ToArray();
             //ViewBag.rolLst = new SelectList(context.Roles, "Id", "Name");
             //ViewBag.rolLst = context.Roles.ToArray();
             //ViewData["heba"] = context.Roles.ToList();
@@ -76,7 +76,7 @@ namespace Mini_Facebook.Controllers
             var users = context.Users.ToList();
             var res = users.Where(s => s.UserName.Contains(serTxt));
             //return PartialView(res);
-            ViewBag.roleArray = context.Roles.ToArray();
+            ViewBag.roleArray = context.Roles.Where(r => r.Deleted == false).ToArray();
 
             ViewData["searchTxt"] = serTxt;
             return PartialView("searfun", res);
@@ -86,7 +86,7 @@ namespace Mini_Facebook.Controllers
         {
             User _user = context.Users.Find(id);
             Role roleObj = context.Roles.Find(id);
-            var lst = context.Roles.GroupBy(o => new { o.Name })
+            var lst = context.Roles.Where(r => r.Deleted == false).GroupBy(o => new { o.Name })
                                        .Select(o => o.FirstOrDefault()).ToList();
             ViewBag.rolLst = new SelectList(lst, "Id", "Name", _user.Id);
             return PartialView(_user);
@@ -144,7 +144,6 @@ namespace Mini_Facebook.Controllers
             //    //var user = new User { UserName = Input.Email, Email = Input.Email };
             //    //
             //}
-
             var findEmailExistance = userManager.FindByEmailAsync(c.Email);
             if (ModelState.IsValid)
             {
