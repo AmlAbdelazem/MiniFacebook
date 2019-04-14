@@ -260,7 +260,7 @@ namespace Mini_Facebook.Controllers
             return context.Roles.Any(e => e.Id == id);
         }
         #endregion
-
+        
         #region Admin Settings
         public IActionResult Settings(string id)
         {
