@@ -70,7 +70,7 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(58, 684, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35862e61c9524356bc444ee6b95a2b09", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2242a1813010481689cf7e0134eb350f", async() => {
                 BeginContext(64, 671, true);
                 WriteLiteral(@"
     <meta charset=""utf-8"">
@@ -106,12 +106,12 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(744, 1665, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9280e023a1cb4ec198ff80bf3d3e29a9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2cd927b70dd6415c850bc4fa6a904142", async() => {
                 BeginContext(750, 237, true);
                 WriteLiteral("\r\n    <header>\r\n        <div class=\"container\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-6 col-sm-6\">\r\n                    <div class=\"app-showcase wow fadeInDown\" data-wow-delay=\".5s\">\r\n                        ");
                 EndContext();
                 BeginContext(987, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a583250e02da45d0987d5994dd883fa4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "b1be41e1ae2f4c76a929930523af8e47", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -136,7 +136,7 @@ using Mini_Facebook.Models;
                             ");
                 EndContext();
                 BeginContext(1284, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "20205992f0c145cea39e588fb298feee", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "45da5762048944a89fd18c473f58444f", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -160,7 +160,7 @@ using Mini_Facebook.Models;
                             ");
                 EndContext();
                 BeginContext(1603, 318, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d16b10c000b48ccaef30a52900a3e29", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5665bf840015436dacde96d28a58bf2a", async() => {
                     BeginContext(1787, 130, true);
                     WriteLiteral("\r\n                                <p style=\"font-size:20pt;color:white;margin-top:5px;\">Register</p>\r\n                            ");
                     EndContext();
@@ -186,7 +186,7 @@ using Mini_Facebook.Models;
                 WriteLiteral("\r\n                            ");
                 EndContext();
                 BeginContext(1951, 312, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "af97b0308af24b3db057b84560b08642", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f75e1b96b4ef4bffa9d599ea0d10daac", async() => {
                     BeginContext(2132, 127, true);
                     WriteLiteral("\r\n                                <p style=\"font-size:20pt;color:white;margin-top:5px;\">Login</p>\r\n                            ");
                     EndContext();

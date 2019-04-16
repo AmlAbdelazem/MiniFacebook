@@ -287,3 +287,5 @@ E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Faceb
 E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.dll
 E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.pdb
 E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csproj.CopyComplete
+E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs
+E:\ITI SD\MVC\Mini-Facbook Project\Register+Login+Admin\Mini_Facebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Posts.g.cshtml.cs

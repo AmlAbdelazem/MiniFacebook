@@ -68,7 +68,7 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(58, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cfde803751174c20a76008d77374dc57", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ba5f0375fd4b4a4db006e72ec9a0fc71", async() => {
                 BeginContext(64, 87, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>Index</title>\r\n");
                 EndContext();
@@ -88,12 +88,12 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(160, 366, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f3b7005264c4be6a2f653c14c3eccdc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a944d0f940b545f581109ccba733f077", async() => {
                 BeginContext(166, 49, true);
                 WriteLiteral("\r\n    <h1>Helllllllllllllllllllllllo</h1>\r\n\r\n    ");
                 EndContext();
                 BeginContext(215, 302, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b89fb38ba3a14a5dac89d4322fd90b03", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b762690ae0174d32b1047f4bbeb8d8d0", async() => {
                     BeginContext(352, 158, true);
                     WriteLiteral("\r\n        <button type=\"submit\" class=\"nav-link btn btn-link\" style=\"margin-left:875px;font-size:20pt;text-decoration:none;color:white;\">Logout</button>\r\n    ");
                     EndContext();
