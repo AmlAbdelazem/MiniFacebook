@@ -59,7 +59,7 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n<div>\r\n    ");
             EndContext();
             BeginContext(159, 420, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5770f003020469a975f897910d65652", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6a70c1b876c4565ba6f3fc3d4781c89", async() => {
                 BeginContext(278, 294, true);
                 WriteLiteral(@"
         <div class=""input-group"">
