@@ -50,6 +50,9 @@ namespace Mini_Facebook.Models
 
         public ICollection<Post> Posts { get; set; }
 
+        public ICollection<Comment> Comments { get; set; }
+
+
         public ICollection<Friendship> Friends { get; set; }
         public ICollection<Friendship> Users { get; set; }
 

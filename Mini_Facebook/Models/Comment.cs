@@ -21,5 +21,11 @@ namespace Mini_Facebook.Models
         public int PostID { get; set; }
 
         public Post Post { get; set; }
+
+        [ForeignKey("User")]
+        public string UserID { get; set; }
+
+        public User User { get; set; }
+
     }
 }

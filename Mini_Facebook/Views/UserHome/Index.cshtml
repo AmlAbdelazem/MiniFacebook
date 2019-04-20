@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<Post>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+ViewData["Title"] = "Index";
+Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
-
+@*<br>*@
+@*<h3>what's on your mind?</h3>*@
 <partial name="Posts" model="@Model" />

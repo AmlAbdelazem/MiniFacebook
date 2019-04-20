@@ -15,6 +15,7 @@ namespace Mini_Facebook.Controllers
         private readonly ApplicationDbContext context;
         private readonly SignInManager<User> signInManager;
         private readonly UserManager<User> userManager;
+
         public string ID { get; set; }
         public UserHomeController(ApplicationDbContext _context, SignInManager<User> signIn, UserManager<User> manager)
         {
@@ -30,6 +31,7 @@ namespace Mini_Facebook.Controllers
             return View(context.Posts.Where(u => String.Equals(u.UserID, ID)).OrderByDescending(d => d.Date));
         }
 
+        //Posts Section
         public IActionResult Posts()
         {
             ID = userManager.GetUserId(User);
@@ -46,6 +48,29 @@ namespace Mini_Facebook.Controllers
             context.Posts.Add(p);
             context.SaveChanges();
             return RedirectToAction("Index", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+        }
+
+
+        //Comments Section
+        ////Get All Comments of a post
+        public IActionResult Comments()
+        {
+            ID = userManager.GetUserId(User);
+            return PartialView(context.Comments.Where(u => u.UserID == ID));
+        }
+
+        //Write Comment in post
+        [HttpPost]
+        public IActionResult AddComment(Comment Com, string CommentBody ,int id)
+        {
+            Com.ID = 3;
+            Com.Body = CommentBody;
+            Com.Deleted = false;
+            Com.PostID = id;
+            context.Comments.Add(Com);
+            context.SaveChanges();
+            return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+
         }
     }
 }
