@@ -91,7 +91,7 @@ namespace Mini_Facebook.Areas.Identity.Pages.Account
                         }
                         else
                         {
-                            return Redirect("~/User/Index");
+                            return Redirect("~/UserHome/Index");
                         }
                     //}
                 }
