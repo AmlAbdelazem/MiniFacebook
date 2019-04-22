@@ -160,6 +160,4 @@ E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.dll
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.pdb
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csproj.CopyComplete
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\UserHome\Index.g.cshtml.cs
-E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\UserHome\Posts.g.cshtml.cs
-E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\UserHome\AllComments.g.cshtml.cs
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Razor\Views\UserHome\Mind.g.cshtml.cs
