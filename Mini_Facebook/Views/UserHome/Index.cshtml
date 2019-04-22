@@ -1,9 +1,20 @@
 ﻿@model IEnumerable<Post>
 
 @{
-ViewData["Title"] = "Index";
-Layout = "~/Views/Shared/_UserLayout.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 @*<br>*@
 @*<h3>what's on your mind?</h3>*@
+
+@*<div style="padding:20px;">
+        <form asp-action="AddPost" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
+            <div class="input-group">
+                <textarea name="PostBody" class="form-control" aria-label="With textarea" placeholder="What's on your mind?" style="width:500px;height:100px"></textarea>
+            </div><br>
+            <input type="submit" style="width:200px;margin-left:500px;" value="Post" class="btn btn-primary" />
+        </form>
+    </div>*@
+<partial name="Mind" />
+
 <partial name="Posts" model="@Model" />

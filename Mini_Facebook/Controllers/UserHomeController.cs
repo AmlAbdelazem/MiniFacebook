@@ -27,7 +27,7 @@ namespace Mini_Facebook.Controllers
         public IActionResult Index()
         {
             ID = userManager.GetUserId(User);
-            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).ToList();
+            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
             return View(context.Posts.Where(u => String.Equals(u.UserID, ID)).OrderByDescending(d => d.Date));
         }
 
@@ -50,26 +50,20 @@ namespace Mini_Facebook.Controllers
             return RedirectToAction("Index", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
         }
 
-
-        //Comments Section
-        ////Get All Comments of a post
-        public IActionResult Comments()
-        {
-            ID = userManager.GetUserId(User);
-            return PartialView(context.Comments.Where(u => u.UserID == ID));
-        }
-
         //Write Comment in post
         [HttpPost]
-        public IActionResult AddComment(Comment Com, string CommentBody ,int id)
+        public IActionResult AddComment(Comment Com, string CommentBody ,int postid)
         {
-            Com.ID = 3;
+            ID = userManager.GetUserId(User);
             Com.Body = CommentBody;
             Com.Deleted = false;
-            Com.PostID = id;
+            Com.PostID = postid;
+            Com.UserID = ID;
             context.Comments.Add(Com);
             context.SaveChanges();
-            return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+            //return RedirectToAction("Posts");
+            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).ToList();
+            return PartialView("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
 
         }
     }
