@@ -31,15 +31,28 @@
                     <table>
                         @foreach (var com in item.Comments)
                         {
-                            <tr>
-                                <td>
-                                    <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;" />
-                                    <a href="www.google.com">@item.User.FirstName</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><div style="height:20px">@com.Body</div></td>
-                            </tr>
+                            @if (com.Deleted == false)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;" />
+                                        <a href="www.google.com">@item.User.FirstName</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="height:20px">@com.Body</div>
+                                        <div>
+                                            <a asp-action="DeleteComment" asp-route-ComID="@com.ID" data-ajax="true" data-ajax-method="Get" data-ajax-update="#posts" data-ajax-mode="replace">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                continue;
+                            }
+
                         }
                     </table>
                 </div>

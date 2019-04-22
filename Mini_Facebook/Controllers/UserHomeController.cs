@@ -65,8 +65,16 @@ namespace Mini_Facebook.Controllers
             //return RedirectToAction("Posts");
             var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
             return RedirectToAction("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
-            //return PartialView("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
-
         }
+
+        public IActionResult DeleteComment(int ComID)
+        {
+            Comment com = context.Comments.FirstOrDefault(c => c.ID == ComID);
+            com.Deleted = true;
+            context.SaveChanges();
+            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
+            return RedirectToAction("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+        }
+
     }
 }
