@@ -35,6 +35,7 @@ namespace Mini_Facebook.Controllers
         public IActionResult Posts()
         {
             ID = userManager.GetUserId(User);
+            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
             return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
         }
 
@@ -62,8 +63,9 @@ namespace Mini_Facebook.Controllers
             context.Comments.Add(Com);
             context.SaveChanges();
             //return RedirectToAction("Posts");
-            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).ToList();
-            return PartialView("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+            var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
+            return RedirectToAction("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+            //return PartialView("Posts", context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
 
         }
     }
