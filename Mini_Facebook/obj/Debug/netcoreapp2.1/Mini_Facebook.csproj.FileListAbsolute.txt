@@ -86,7 +86,6 @@ E:\MVC\MiniFacebook\Mini_Facebook\bin\Debug\netcoreapp2.1\Mini_Facebook.dll
 E:\MVC\MiniFacebook\Mini_Facebook\bin\Debug\netcoreapp2.1\Mini_Facebook.pdb
 E:\MVC\MiniFacebook\Mini_Facebook\bin\Debug\netcoreapp2.1\Mini_Facebook.Views.dll
 E:\MVC\MiniFacebook\Mini_Facebook\bin\Debug\netcoreapp2.1\Mini_Facebook.Views.pdb
-E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csprojAssemblyReference.cache
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csproj.CoreCompileInputs.cache
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.RazorAssemblyInfo.cache
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.RazorAssemblyInfo.cs
@@ -162,3 +161,4 @@ E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.Views.pd
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.dll
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.pdb
 E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csproj.CopyComplete
+E:\MVC\MiniFacebook\Mini_Facebook\obj\Debug\netcoreapp2.1\Mini_Facebook.csprojAssemblyReference.cache

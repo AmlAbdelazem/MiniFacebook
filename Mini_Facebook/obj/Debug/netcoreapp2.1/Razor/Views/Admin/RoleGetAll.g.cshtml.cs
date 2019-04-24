@@ -110,7 +110,7 @@ using Mini_Facebook.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(745, 178, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dcf7a3ae23ce4f1bbe655b4efec5695f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e1770b61a77b40369b702cdfd33502e2", async() => {
                 BeginContext(915, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -150,7 +150,7 @@ using Mini_Facebook.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(947, 152, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cf7c5c684bed48d0b22820cd7a9b6dbf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "134919cab55547a9bfdc63aced2d6fdc", async() => {
                 BeginContext(1089, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

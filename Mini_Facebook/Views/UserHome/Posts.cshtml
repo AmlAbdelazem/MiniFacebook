@@ -1,73 +1,65 @@
 ﻿@model IEnumerable<Post>
 
-@*<div style="padding:20px;">
-    <form asp-action="AddPost" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
-        <div class="input-group">
-            <textarea name="PostBody" class="form-control" aria-label="With textarea" placeholder="What's on your mind?" style="width:500px;height:100px"></textarea>
-        </div><br>
-        <input type="submit" style="width:200px;margin-left:500px;" value="Post" class="btn btn-primary" />
-    </form>
-</div>
 
-<h2 style="margin-left:50px;">All Posts</h2>
-<hr style="width:1300px;" />*@
-
-<div id="posts">
-    <table style="margin-left:150px;">
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;border-radius:50%" />
-                    <a href="www.google.com">@item.User.FirstName</a>
-                </td>
-            </tr>
-            <tr style="border:1px solid blue;">
-                <td>
-                    @*<input value="@item.Body" disabled="disabled" style="padding:15px;width:800px;height:100px">*@
-                    <div style="width:300px;height:100px">@item.Body</div>
-                <hr>
-                <div id="comments" style="margin-left:70px;">
-                    <table>
-                        @foreach (var com in item.Comments)
-                        {
-                            @if (com.Deleted == false)
-                            {
-                                <tr>
-                                    <td>
-                                        <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;" />
-                                        <a href="www.google.com">@item.User.FirstName</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div style="height:20px">@com.Body</div>
-                                        <div>
-                                            <a asp-action="DeleteComment" asp-route-ComID="@com.ID" data-ajax="true" data-ajax-method="Get" data-ajax-update="#posts" data-ajax-mode="replace">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            }
-                            else
-                            {
-                                continue;
-                            }
-
-                        }
-                    </table>
-                </div>
-                <div style="padding:15px;margin-left:60px;">
-                    <form asp-route-postid="@item.ID" asp-action="AddComment" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
-                        <div class="input-group">
-                            <textarea name="CommentBody" class="form-control" placeholder="write a Comment.." style="width:600px;height:50px"></textarea>
-                        </div>
-                        <input type="submit" value="Comment" class="btn btn-success" />
-                    </form>
-                </div>
-                </td>
-            </tr>
-
-        }
-
-    </table>
-</div>
+    <div id="posts">
+        <table style="margin-left:150px;">
+            @foreach (var item in Model)
+            {
+                @if (item.Deleted == false)
+                {
+                    <tr>
+                        <td>
+                            <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;border-radius:50%" />
+                            <a href="www.google.com">@item.User.FirstName</a>
+                        </td>
+                    </tr>
+                    <tr style="border:1px solid blue;">
+                        <td>
+                            <div style="width:300px;height:100px">@item.Body</div>
+                            <hr>
+                            <div style="margin-left:70px;">
+                                <table>
+                                    @foreach (var com in item.Comments)
+                                    {
+                                        @if (com.Deleted == false)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;" />
+                                                    <a href="www.google.com">@item.User.FirstName</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div style="height:20px">@com.Body</div>
+                                                    <div>
+                                                        <a asp-action="DeleteComment" asp-route-ComID="@com.ID" data-ajax="true" data-ajax-method="Get" data-ajax-update="#posts" data-ajax-mode="replace">Delete</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                        else
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                </table>
+                            </div>
+                            <div style="padding:15px;margin-left:60px;">
+                                <form asp-route-postid="@item.ID" asp-action="AddComment" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
+                                    <div class="input-group">
+                                        <textarea name="CommentBody" class="form-control" placeholder="write a Comment.." style="width:600px;height:50px"></textarea>
+                                    </div>
+                                    <input type="submit" value="Comment" class="btn btn-success" />
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        </table>
+    </div>

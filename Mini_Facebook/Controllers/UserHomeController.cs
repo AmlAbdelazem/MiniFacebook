@@ -28,7 +28,33 @@ namespace Mini_Facebook.Controllers
         {
             ID = userManager.GetUserId(User);
             var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
-            return View(context.Posts.Where(u => String.Equals(u.UserID, ID)).OrderByDescending(d => d.Date));
+            //Get My Friends IDs
+            var friends = context.Friendships.Where(u => u.UserID == ID).Select(u => u.FriendID);
+            //Get My Friends
+            List<User> Myfriends = new List<User>();
+            foreach (var friendID in friends)
+            {
+                Myfriends.Add(context.Users.Find(friendID));
+            }
+            //Get Post of Me and MyFriends
+            List<Post> FriPosts = new List<Post>();
+            foreach (var friend in Myfriends)
+            {
+                var onlyfriendposts = context.Posts.Where(u => u.UserID == friend.Id).Include(c => c.Comments).ToList();
+                foreach (var post in onlyfriendposts)
+                {
+                    FriPosts.Add(post);
+                }
+            }
+            //Get My Posts 
+            //Alllllll Posts in FriPosts
+            //var MyPosts = context.Users.Where(u => u.Id == ID).Include(u => u.Friends).FirstOrDefault().Posts;
+            foreach (var post in res)
+            {
+                FriPosts.Add(post);
+            }
+            return View(FriPosts.OrderByDescending(d => d.Date));
+            //return View(context.Posts.Where(u => String.Equals(u.UserID, ID)).OrderByDescending(d => d.Date));
         }
 
         //Posts Section
@@ -36,7 +62,38 @@ namespace Mini_Facebook.Controllers
         {
             ID = userManager.GetUserId(User);
             var res = context.Posts.Where(u => String.Equals(u.UserID, ID)).Include(p => p.User).Include(c => c.Comments).ToList();
-            return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+
+            //Get My Friends IDs
+            var friends = context.Friendships.Where(u => u.UserID == ID).Select(u => u.FriendID);
+
+            //Get My Friends
+            List<User> Myfriends = new List<User>();
+            foreach (var friendID in friends)
+            {
+                Myfriends.Add(context.Users.Find(friendID));
+            }
+
+            //Get Post of Me and MyFriends
+            List<Post> FriPosts = new List<Post>();
+            foreach (var friend in Myfriends)
+            {
+                var onlyfriendposts = context.Posts.Where(u => u.UserID == friend.Id).Include(c => c.Comments).ToList();
+                foreach (var post in onlyfriendposts)
+                {
+                    FriPosts.Add(post);
+                }
+            }
+
+            //Get My Posts 
+            //Alllllll Posts in FriPosts
+            var MyPosts = context.Users.Where(u => u.Id == ID).Include(u => u.Friends).FirstOrDefault().Posts;
+            foreach (var post in res)
+            {
+                FriPosts.Add(post);
+            }
+
+            return PartialView(FriPosts);
+            //return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
         }
 
         [HttpPost]
