@@ -48,13 +48,11 @@ namespace Mini_Facebook.Controllers
             }
             //Get My Posts 
             //Alllllll Posts in FriPosts
-            //var MyPosts = context.Users.Where(u => u.Id == ID).Include(u => u.Friends).FirstOrDefault().Posts;
             foreach (var post in res)
             {
                 FriPosts.Add(post);
             }
             return View(FriPosts.OrderByDescending(d => d.Date));
-            //return View(context.Posts.Where(u => String.Equals(u.UserID, ID)).OrderByDescending(d => d.Date));
         }
 
         //Posts Section
@@ -86,14 +84,12 @@ namespace Mini_Facebook.Controllers
 
             //Get My Posts 
             //Alllllll Posts in FriPosts
-            var MyPosts = context.Users.Where(u => u.Id == ID).Include(u => u.Friends).FirstOrDefault().Posts;
             foreach (var post in res)
             {
                 FriPosts.Add(post);
             }
 
-            return PartialView(FriPosts);
-            //return PartialView(context.Posts.Where(u => u.UserID == ID).OrderByDescending(d => d.Date));
+            return PartialView(FriPosts.OrderByDescending(d => d.Date));
         }
 
         [HttpPost]

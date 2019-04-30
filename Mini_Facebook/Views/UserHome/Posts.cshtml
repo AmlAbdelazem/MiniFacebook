@@ -2,7 +2,7 @@
 
 
     <div id="posts">
-        <table style="margin-left:150px;">
+        <table style="margin-left:150px;width:1000px;">
             @foreach (var item in Model)
             {
                 @if (item.Deleted == false)
@@ -15,7 +15,7 @@
                     </tr>
                     <tr style="border:1px solid blue;">
                         <td>
-                            <div style="width:300px;height:100px">@item.Body</div>
+                            <div style="width:300px;height:100px;padding:5px;">@item.Body</div>
                             <hr>
                             <div style="margin-left:70px;">
                                 <table>

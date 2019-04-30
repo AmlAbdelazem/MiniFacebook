@@ -284,7 +284,7 @@ WriteAttributeValue("", 1720, item.Id, 1720, 8, false);
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(3209, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b7448e0730bf41779cde3060b790e528", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73690cf3339a43c6b8c6cd2cf31c151d", async() => {
                 BeginContext(3258, 7, false);
 #line 74 "E:\MVC\MiniFacebook\Mini_Facebook\Views\Admin\searfun.cshtml"
                                                                                Write(ix.Name);
@@ -332,7 +332,7 @@ AddHtmlAttributeValue("", 3247, item.Id, 3247, 8, false);
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(3386, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12a0eec763a24a8e94b81a2e25893ec4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "13796082b8dc4e8da48460f98b84d2a3", async() => {
                 BeginContext(3426, 7, false);
 #line 77 "E:\MVC\MiniFacebook\Mini_Facebook\Views\Admin\searfun.cshtml"
                                                                       Write(ix.Name);
@@ -382,7 +382,7 @@ AddHtmlAttributeValue("", 3415, item.Id, 3415, 8, false);
             WriteLiteral("                        </select>\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(3590, 198, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a86674d51764d6483a16690aedb2c4c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a8850fab9a24e70b71aeaa6688d0b49", async() => {
                 BeginContext(3778, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -446,7 +446,7 @@ AddHtmlAttributeValue("", 3415, item.Id, 3415, 8, false);
                 ");
             EndContext();
             BeginContext(4498, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "badd38f4ca934c42b398e242f4d733bd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "daca8422866b4c4ca192761bd6e882d4", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

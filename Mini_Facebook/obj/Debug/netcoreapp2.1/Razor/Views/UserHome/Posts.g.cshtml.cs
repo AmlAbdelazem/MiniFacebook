@@ -159,7 +159,7 @@ WriteAttributeValue("", 1231, Url.Content(item.User.PhotoSrc), 1231, 32, false);
             WriteLiteral("</div>\r\n                                                    <div>\r\n                                                        ");
             EndContext();
             BeginContext(1823, 157, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "626240fec7114490bf3249970ac3e5ce", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "64d2ae4f016b4539a263e941c8237fe2", async() => {
                 BeginContext(1970, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -216,7 +216,7 @@ WriteAttributeValue("", 1231, Url.Content(item.User.PhotoSrc), 1231, 32, false);
             WriteLiteral("                                </table>\r\n                            </div>\r\n                            <div style=\"padding:15px;margin-left:60px;\">\r\n                                ");
             EndContext();
             BeginContext(2601, 566, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d303a5b8331b496b83e515607a666a88", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0ad501e789ab493cb3fc8a33468241c4", async() => {
                 BeginContext(2751, 409, true);
                 WriteLiteral(@"
                                     <div class=""input-group"">
