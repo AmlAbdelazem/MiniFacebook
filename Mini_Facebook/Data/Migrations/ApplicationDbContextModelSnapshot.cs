@@ -137,6 +137,8 @@ namespace Mini_Facebook.Data.Migrations
 
                     b.Property<bool>("Deleted");
 
+                    b.Property<int>("status");
+
                     b.HasKey("UserID", "FriendID");
 
                     b.HasAlternateKey("FriendID", "UserID");

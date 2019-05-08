@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*@model IEnumerable<Friendship>
+
+    @foreach(var item in ViewBag.friends)
+    {
+        <label>@item.Friend.FirstName</label>
+        <label>hhh</label>
+
+    }*@
+@model IEnumerable<Friendship>
+<div id="divFrnd">
+    <label>Friends:</label>
+    <br />
+    @foreach (var item in ViewBag.friends)
+    {
+        <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.Friend.Id">@String.Concat((((User)item.Friend).FirstName), " ", (((User)item.Friend).LastName))</a>
+        <a asp-action="sendRequestP" class="btn btn-danger" id="addBtnP" data-ajax-update="#bigDivFrnd" data-ajax-mode="replace" asp-route-friendId="@item.Friend.Id" data-ajax="true" data-ajax-method="Post">Remove Friend</a>
+        <br />
+    }
+    @if (ViewBag.friends == null)
+    {
+        <label>No Friends</label>
+    }
+</div>
+
+<div id="reqDiv">
+    <label>Friend Requests:</label>
+    <br />
+    @foreach (var item in ViewBag.PendingFriends)
+    {
+        <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.Friend.Id">@String.Concat((((User)item.Friend).FirstName), " ", (((User)item.Friend).LastName))</a>
+        <a asp-action="sendRequestReq" class=" btn btn-primary" id="addBtnPg" data-ajax-update="#bigDivFrnd" data-ajax-mode="replace" asp-route-friendId="@item.Friend.Id" data-ajax="true" data-ajax-method="Post">Accept</a>
+        <a asp-action="removeRequestReq" class=" btn btn-danger" id="removeBtnPg" data-ajax-update="#bigDivFrnd" data-ajax-mode="replace" asp-route-friendId="@item.Friend.Id" data-ajax="true" data-ajax-method="Post">Remove Request</a>
+        <br />
+    }
+    @if (ViewBag.PendingFriends == null)
+    {
+        <label>No Friend Requests</label>
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<div>
+    <div class="profile-img-container">
+        <div style="background-color:gray">
+            <img src="@Url.Content(@ViewData["imgSrc"].ToString())" width="100px" height="100px" @*style="border-radius:50%" *@ id="Uimg" class="img-thumbnail img-circle img-responsive" />
+        </div>
+        @if (UserManager.GetUserId(User) == ViewBag.UserProfileID)
+        {
+            <a id="UploadPic" class="icon-wrapper"><i id="icon_upload" class="fa fa-camera"></i></a>
+        }
+    </div>
+    @if (UserManager.GetUserId(User) == ViewBag.UserProfileID)
+    {
+        <form method="post" asp-action="changePic" enctype="multipart/form-data"
+              data-ajax="true" data-ajax-method="Post"
+              data-ajax-update="#headerDiv" data-ajax-mode="replace">
+            <input type="file" name="pic" style="display:none" />
+            <input type="submit" value="imgChange" />
+
+        </form>
+    }
+</div>
+
+<script>
+    $("#UploadPic").click(function () {
+        $("input[type='file']").trigger("click")
+    });
+</script>

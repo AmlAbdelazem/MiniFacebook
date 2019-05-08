@@ -23,8 +23,16 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /*#UserFriendsDiv, #UserFriendsRequestsDiv {*/
+        #reqDiv, #divFrnd{
+        background-color: lightgoldenrodyellow;
+        margin-top: 10px;
+        padding: 10px;
+        width: 400px;
+        }
+    </style>
 
 </head>
 <body>
@@ -36,9 +44,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline mr-auto">
+            @*<form class="form-inline mr-auto" asp-action="Search" asp-controller="UserHome">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                @*<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>*@
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>*@
+            <form asp-action="Search" data-ajax="true" data-ajax-method="get" data-ajax-update="#MySearch" data-ajax-mode="replace">
+                <input type="text" class="form-control mr-sm-2" placeholder="Enter name" name="name" />
+               @* <input type="submit" value="Search" />*@
             </form>
             <ul class="navbar-nav mr-auto my-2 my-lg-0">
                 <li class="nav-item active">
@@ -48,7 +60,7 @@
                     <a class="nav-link" asp-controller="Profile" asp-action="Index">Profile</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Setting</a>
+                    <a class="nav-link" asp-controller="UserSettings" asp-action="Index">Setting</a>
                 </li>
             </ul>
             @*<a style="color:black;margin-left:-500px;font-size:10pt;" @*asp-area="Identity" asp-page="/Account/Manage/Index"  title="Manage">@UserManager.GetUserName(User)!</a>*@
@@ -59,9 +71,10 @@
     </nav>
 
 
-        @RenderBody()
+    @RenderBody()
 
     <script src="~/Ajax/jquery.unobtrusive-ajax.js"></script>
+    @RenderSection("Scripts", required: false)
 
 </body>
 </html>

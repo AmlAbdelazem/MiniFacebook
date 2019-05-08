@@ -1,0 +1,31 @@
+﻿@model IEnumerable<User>
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.FirstName)
+        @Html.DisplayFor(modelItem => item.LastName)*@
+                    <img src="@Url.Content(item.PhotoSrc)" style="width:50px;height:60px;" />
+                    <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.Id">@String.Concat(item.FirstName, " ", item.LastName)</a>
+                </td>
+
+            </tr>
+        }
+        @foreach (var f in ViewBag.friendUsers)
+        {
+            <tr>
+                <td>
+                    <img src="@f.PhotoSrc" style="width:50px;height:60px;" />
+                    <a asp-action="Index" asp-controller="Profile" asp-route-id="@f.Id">@String.Concat(f.FirstName, " ", f.LastName)</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

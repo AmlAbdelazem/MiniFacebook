@@ -1,0 +1,31 @@
+﻿@model string
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@{
+    string btnClass;
+    if (string.Equals(ViewBag.frndBtn, "Add Friend"))
+    {
+        btnClass = "btn btn-primary";
+    }
+    else if (string.Equals(ViewBag.frndBtn, "Cancel Request"))
+    {
+        btnClass = "btn btn-success";
+    }
+    else if (string.Equals(ViewBag.frndBtn, "Accept"))
+    {
+        btnClass = "btn btn-primary";
+    }
+    else //Remove Friend
+    {
+        btnClass = "btn btn-danger";
+    }
+}
+
+<a asp-action="sendRequest" class=" @btnClass mybtn" id="addBtn" data-ajax-update="#addBtn" data-ajax-mode="replace" asp-route-friendId="@Model" data-ajax="true" data-ajax-method="Post">@ViewBag.frndBtn</a>
+
+@if (string.Equals(ViewBag.frndBtn, "Accept"))
+{
+    <a asp-action="removeRequest" class=" btn btn-danger mybtn" id="removeBtn" data-ajax-update="#addBtn" data-ajax-mode="replace" asp-route-friendId="@Model" data-ajax="true" data-ajax-method="Post">Remove Request</a>
+}

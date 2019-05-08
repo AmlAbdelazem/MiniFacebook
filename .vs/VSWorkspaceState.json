@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Mini_Facebook"
+    "\\Mini_Facebook\\Controllers",
+    "\\Mini_Facebook\\Models",
+    "\\Mini_Facebook\\Views",
+    "\\Mini_Facebook\\Views\\UserHome"
   ],
   "SelectedNode": "\\Mini_Facebook.sln",
   "PreviewInSolutionExplorer": false

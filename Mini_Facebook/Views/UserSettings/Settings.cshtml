@@ -1,0 +1,65 @@
+﻿@model Mini_Facebook.Models.User
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<h2 style="margin-left:10px">Settings</h2>
+
+<div>
+    <div style="position:relative;top:20px;left:240px;width:400px;height:470px;border-radius:10px;box-shadow: 2px 2px 5px grey;">
+        <form asp-action="Settings" data-ajax="true" data-ajax-method="Post" data-ajax-mode="Replace" data-ajax-update="#GetAll" data-ajax-success="success()" data-ajax-failure="fail()" style="position:relative;top:25px;left:50px">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Email" class="control-label" style="font-size:15pt"></label>
+                <input asp-for="Email" class="form-control" style="width:300px" disabled="disabled" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordHash" class="control-label" style="font-size:15pt">Current Password</label>
+                <input asp-for="PasswordHash" value="" class="form-control" style="width:300px" id="OldPass" type="password" />
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordHash" class="control-label" style="font-size:15pt">New Password</label>
+                <input asp-for="PasswordHash" name="NewPass" value="" class="form-control" style="width:300px" id="NewPass" type="password" />
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordHash" class="control-label" style="font-size:15pt">Confirm Password</label>
+                <input asp-for="PasswordHash" name="ConPass" value="" class="form-control" style="width:300px" id="ConPass" type="password" />
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" style="position:relative;left:120px" id="btnSubmit" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="modal fade" id="SuccessModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="Success">
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $("#btnSubmit").click(function () {
+        $("#OldPass").val = ""; $("#NewPass").val = ""; $("#ConPass").val = "";
+    })
+    function success() {
+        var res = confirm("Password Updated Successfully");
+        if (res) {
+            window.location.href = '/Profile/Index';
+        }
+    }
+    function fail() {
+        alert("Password not Updated due to one or more error:\n1-Passwords must be at least 6 characters.\n2-Passwords must have at least one non alphanumeric character.\n3-Passwords must have at least one lowercase ('a'-'z').\n4-Passwords must have at least one uppercase ('A'-'Z').");
+        $("#OldPass").val = ""; $("#NewPass").val = ""; $("#ConPass").val = "";
+    }
+</script>

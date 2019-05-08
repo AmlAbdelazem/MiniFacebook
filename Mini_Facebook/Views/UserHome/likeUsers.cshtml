@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Like>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*find user object by UserID*@
+                <img src="@Url.Content(item.User.PhotoSrc)" width="30px" height="30px" style="border-radius:50%" />
+                @*new*@
+                <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.UserID">@item.User.FirstName</a>
+            </td>
+        </tr>
+    }
+</table>

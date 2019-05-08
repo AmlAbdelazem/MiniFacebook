@@ -1,0 +1,40 @@
+﻿@model Mini_Facebook.Models.User
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+<br>
+<h5 class="m-2">Info.</h5>
+<hr />
+<table class="m-2">
+    <tr>
+        <td>Full Name:</td>
+        <td>
+            <label>@String.Concat((((User)ViewBag.user).FirstName), " ", (((User)ViewBag.user).LastName))</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Bio:</td>
+        <td>
+            <label>@(((User)ViewBag.user).Bio)</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Birthdate:</td>
+        <td>
+            <label>@(((User)ViewBag.user).Birthdate.ToShortDateString())</label>
+        </td>
+    </tr>
+
+</table>
+
+<div>
+    @if (UserManager.GetUserId(User) == ViewBag.UserProfileID)
+    {
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="display:block!important">
+            Edit
+        </button>
+    }
+</div>
+<br />
+

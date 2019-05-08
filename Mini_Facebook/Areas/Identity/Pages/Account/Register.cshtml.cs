@@ -64,19 +64,28 @@ namespace Mini_Facebook.Areas.Identity.Pages.Account
             {
                 var birthDay = ((DateTime)value);
 
-                if (birthDay >= getMaxDate() || birthDay <= getMinDate())
+                if (birthDay <= getMaxDate() && birthDay >= getMinDate())
                 {
-                    return new ValidationResult(GetErrorMessage());
+                    return ValidationResult.Success;
                 }
+                else if (birthDay > getMaxDate())
+                {
+                    return new ValidationResult(GetErrorMessageLessThan());
+                }
+                return new ValidationResult(GetErrorMessageGreaterThan());
 
-                return ValidationResult.Success;
             }
 
-            public string GetErrorMessage()
+            public string GetErrorMessageLessThan()
             {
-                return $"Age must be between {_minAge} and 200.";
+                return $"You are just a kid! Don't come here again until you're {_minAge}.";
+            }
+            public string GetErrorMessageGreaterThan()
+            {
+                return "You can't be that old. You're LYING!";
             }
         }
+
         public class InputModel
         {
             [Required]

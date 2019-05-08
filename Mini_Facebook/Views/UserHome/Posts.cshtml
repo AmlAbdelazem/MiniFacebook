@@ -1,65 +1,112 @@
 ﻿@model IEnumerable<Post>
+@using Microsoft.AspNetCore.Identity
 
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
-    <div id="posts">
-        <table style="margin-left:150px;width:1000px;">
-            @foreach (var item in Model)
+<div id="posts">
+    <table style="margin-left:150px;width:1000px;">
+        @foreach (var item in Model)
+        {
+            @if (item.Deleted == false)
             {
-                @if (item.Deleted == false)
-                {
-                    <tr>
-                        <td>
-                            <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;border-radius:50%" />
-                            <a href="www.google.com">@item.User.FirstName</a>
-                        </td>
-                    </tr>
-                    <tr style="border:1px solid blue;">
-                        <td>
-                            <div style="width:300px;height:100px;padding:5px;">@item.Body</div>
-                            <hr>
-                            <div style="margin-left:70px;">
-                                <table>
-                                    @foreach (var com in item.Comments)
+                <tr>
+                    <td>
+                        <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;border-radius:50%" />
+                        <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.User.Id">@String.Concat((item.User.FirstName), " ", (item.User.LastName))</a>
+                        @if (UserManager.GetUserId(User) == item.UserID)
+                        {
+                            <a class="btn close" aria-label="Close" style="display:inline" asp-action="DeletePost" asp-route-id="@item.ID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="Replace" data-ajax-update="#posts">
+                                <span aria-hidden="true">&times;</span>
+                            </a>
+                        }
+                    </td>
+                </tr>
+                <tr style="border:1px solid blue;">
+                    <td>
+                        <div style="width:300px;height:100px;padding:5px;">@item.Body</div>
+                        <hr>
+                        <div style="margin-left:70px;">
+                            <table>
+                                @foreach (var com in item.Comments)
+                                {
+                                    @if (com.Deleted == false)
                                     {
-                                        @if (com.Deleted == false)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    <img src="@Url.Content(item.User.PhotoSrc)" style="width:30px;height:30px;" />
-                                                    <a href="www.google.com">@item.User.FirstName</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div style="height:20px">@com.Body</div>
-                                                    <div>
+                                        <tr>
+                                            <td>
+                                                @{
+                                                    var commentUser = item.User;
+                                                    foreach (var person in ViewBag.ALLUsers)
+                                                    {
+                                                        if (person.Id == com.UserID)
+                                                        {
+                                                            commentUser = person;
+                                                        }
+                                                    }
+                                                }
+                                                <img src="@Url.Content(commentUser.PhotoSrc)" style="width:30px;height:30px;" />
+                                                <a asp-action="Index" asp-controller="Profile" asp-route-id="@item.User.Id">@commentUser.FirstName</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="height:20px">@com.Body</div>
+                                                <div>
+                                                    @if (UserManager.GetUserId(User) == com.UserID || UserManager.GetUserId(User) == item.UserID)
+                                                    {
                                                         <a asp-action="DeleteComment" asp-route-ComID="@com.ID" data-ajax="true" data-ajax-method="Get" data-ajax-update="#posts" data-ajax-mode="replace">Delete</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        }
-                                        else
-                                        {
-                                            continue;
-                                        }
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
                                     }
-                                </table>
-                            </div>
-                            <div style="padding:15px;margin-left:60px;">
-                                <form asp-route-postid="@item.ID" asp-action="AddComment" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
-                                    <div class="input-group">
-                                        <textarea name="CommentBody" class="form-control" placeholder="write a Comment.." style="width:600px;height:50px"></textarea>
-                                    </div>
-                                    <input type="submit" value="Comment" class="btn btn-success" />
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                }
-                else
-                {
-                    continue;
-                }
+                                    else
+                                    {
+                                        continue;
+                                    }
+                                }
+                            </table>
+                        </div>
+                        <div style="padding:15px;margin-left:60px;">
+                            <form asp-route-postid="@item.ID" asp-action="AddComment" data-ajax="true" data-ajax-method="Post" data-ajax-update="#posts" data-ajax-mode="replace">
+                                <div class="input-group">
+                                    <textarea name="CommentBody" class="form-control" placeholder="write a Comment.." style="width:600px;height:50px"></textarea>
+                                </div>
+                                <input type="submit" value="Comment" class="btn btn-success" />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                ///////////////new
+                <tr>
+                    <td>
+                        <a asp-action="likeUsers" asp-route-id="@item.ID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="Replace" data-ajax-update="#likeData" data-toggle="modal" data-target="#likesModal" data--ajax-success="success()">@item.Likes.Where(d => d.Deleted == false).Count() Likes</a>
+                    </td>
+                    @{
+                        var l = "Like";
+                        if ((item.Likes.Where(u => u.UserID == UserManager.GetUserId(User)).Count()) > 0)
+                        {
+                            if (item.Likes.Where(d => d.Deleted == true).Count() > 0)
+                            {
+                                l = "Like";
+                            }
+                            else if (item.Likes.Where(d => d.Deleted == false).Count() > 0)
+                            {
+                                l = "UnLike";
+                            }
+                            else
+                            {
+                                l = "Like";
+                            }
+                        }
+                    }
+                    <td><a asp-action="like" asp-route-id="@item.ID" class="btn btn-primary" data-ajax="true" data-ajax-method="Get" data-ajax-mode="Replace" data-ajax-update="#posts">@l</a></td>
+                </tr>
             }
-        </table>
-    </div>
+            else
+            {
+                continue;
+            }
+        }
+    </table>
+</div>

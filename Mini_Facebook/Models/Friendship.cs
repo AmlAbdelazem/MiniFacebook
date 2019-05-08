@@ -22,5 +22,7 @@ namespace Mini_Facebook.Models
         public User User { get; set; }
 
         public User Friend { get; set; }
+
+        public FriendStatus status { get; set; }
     }
 }
